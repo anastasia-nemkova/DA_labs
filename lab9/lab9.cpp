@@ -5,7 +5,6 @@
 
 const long long INF = std::numeric_limits<long long>::max();
 
-//разряженный граф
 void dijkstra(int n, int start, std::vector<std::vector<std::pair<int, long long>>>& graph, std::vector<long long>& distance) {
     distance[start] = 0;
     std::set<std::pair<long long, int>> s;
@@ -32,31 +31,6 @@ void dijkstra(int n, int start, std::vector<std::vector<std::pair<int, long long
         }
     }
 }
-
-
-// неразряженный граф
-// void dijkstra(int n, int start, std::vector<std::vector<std::pair<int, long long>>>& graph, std::vector<long long>& distance) {
-//     distance[start] = 0;
-//     std::vector<bool> visited(graph.size());
-
-//     for (int i = 0; i < graph.size(); ++i) {
-//         int nearVert = -1;
-//         for (int v = 0; v < graph.size(); ++v) {
-//             if (!visited[v] && (nearVert == -1 || distance[v] < distance[nearVert])) {
-//                 nearVert = v;
-//             }
-//         }
-//         visited[nearVert] = true;
-//         for (auto& edge : graph[nearVert]) {
-//             int v = edge.first;
-//             long long w1 = edge.second;
-
-//             if (w1 + distance[nearVert] < distance[v]) {
-//                 distance[v] = w1 + distance[nearVert];
-//             }
-//         }
-//     }
-// }
 
 int main() {
     int n, m, start, finish;
